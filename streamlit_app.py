@@ -3,22 +3,22 @@ import replicate
 import os
 
 # App title
-st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
+st.set_page_config(page_title="⌚Clockwise")
 
 # Replicate Credentials
 with st.sidebar:
-    st.title('🦙💬 Llama 2 Chatbot')
+    st.title('⌚Clockwise')
     st.write('This chatbot is created using the open-source Llama 2 LLM model from Meta.')
-    if 'REPLICATE_API_TOKEN' in st.secrets:
+    if 'AIzaSyA7DtHxYk1lS6credrDs_R6kmano2z2dPM' in st.secrets:
         st.success('API key already provided!', icon='✅')
-        replicate_api = st.secrets['REPLICATE_API_TOKEN']
+        replicate_api = st.secrets['AIzaSyA7DtHxYk1lS6credrDs_R6kmano2z2dPM']
     else:
         replicate_api = st.text_input('Enter Replicate API token:', type='password')
         if not (replicate_api.startswith('r8_') and len(replicate_api)==40):
             st.warning('Please enter your credentials!', icon='⚠️')
         else:
             st.success('Proceed to entering your prompt message!', icon='👉')
-    os.environ['REPLICATE_API_TOKEN'] = replicate_api
+    os.environ['AIzaSyA7DtHxYk1lS6credrDs_R6kmano2z2dPM'] = replicate_api
 
     st.subheader('Models and parameters')
     selected_model = st.sidebar.selectbox('Choose a Llama2 model', ['Llama2-7B', 'Llama2-13B'], key='selected_model')
